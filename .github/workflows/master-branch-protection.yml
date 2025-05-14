@@ -1,0 +1,27 @@
+name: Master Branch Protection
+
+on:
+  workflow_dispatch:  # Allow manual triggering
+  push:
+    paths:
+      - '.github/workflows/master-branch-protection.yml'  # Run when this file changes
+
+jobs:
+  protect-branches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Configure Branch Protection
+        uses: relaxdiego/github-branch-protection@v1
+        with:
+          github-token: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          branch: master  # Protect the master branch
+          required-approvals: 1  # Require at least one approval
+          dismiss-stale-reviews: true
+          require-review-from-codeowners: false
+          bypass-pull-request-allowances: ""
+          restrict-push: true  # Prevent direct pushes
+          include-administrators: false  # Allow admins to bypass (set to true to restrict admins as well)

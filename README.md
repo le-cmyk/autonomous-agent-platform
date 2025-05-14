@@ -32,6 +32,7 @@ The platform follows a clean architecture approach with:
 - [UI Wireframes](./docs/ui/wireframes.md)
 - [Deployment Guide](./docs/deployment/deployment-guide.md)
 - [Developer Guide: Building Agents](./docs/developer/building-agents.md)
+- [Branch Protection](./docs/developer/branch-protection.md)
 - [Testing Strategy](./docs/testing/testing-strategy.md)
 
 ## Getting Started
