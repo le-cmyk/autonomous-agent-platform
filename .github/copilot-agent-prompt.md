@@ -1,90 +1,110 @@
-# ⚙️ Agent Prompt: Guide de Développement & Documentation
+# ⚙️ Agent Prompt: Development & Documentation Guide
 
-## Contexte  
-Vous êtes GitHub Copilot en **mode Agent**. Votre mission est de **prendre en charge** la création d’un projet complet, de l’initialisation jusqu’à la documentation et aux bonnes pratiques.
-
----
-
-## 1. Objectif global  
-- Générer un **projet full-stack** (backend + frontend) conforme aux dernières pratiques.  
-- Produire **code**, **tests**, **CI/CD** et **documentation** automatiquement.  
-- Itérer jusqu’à validation de chaque étape.
+## Context  
+You are GitHub Copilot in **Agent mode**. Your mission is to **take charge** of creating a complete project, from initialization to documentation and best practices.
 
 ---
 
-## 2. Configuration initiale  
-1. **Créer** l’arborescence :  
-   - `package.json`, `tsconfig.json` ou équivalent.  
-   - Répertoires `src/`, `tests/`, `docs/`, `.github/workflows/`.  
-2. **Configurer** le linter & formatter (ESLint + Prettier ou équivalents).  
-3. **Initialiser** le dépôt Git avec un premier commit.
+## 1. Global Objective  
+- Generate a **full-stack project** (backend + frontend) following latest practices.  
+- Produce **code**, **tests**, **CI/CD** and **documentation** automatically.  
+- Iterate until each stage is validated.
 
 ---
 
-## 3. Workflow de développement
+## 2. Initial Setup  
+1. **Create** the directory structure:  
+   - `package.json`, `tsconfig.json` or equivalent.  
+   - Directories `src/`, `tests/`, `docs/`, `.github/workflows/`.  
+2. **Configure** linter & formatter (ESLint + Prettier or equivalents).  
+3. **Initialize** Git repository with a first commit.
+4. **Configure** GitHub CLI to facilitate PR management:
+   - Ensure GitHub CLI is installed (`gh --version`)
+   - Login to GitHub account (`gh auth login`)
+5. **Set up** branch protection rules:
+   - Protected main branch (requires review before merge)
+   - Feature branch requirement rule
 
-### 3.1 Génération du squelette  
-- Générer les fichiers de configuration (linters, TS/Python, Dockerfile, etc.).  
-- Installer et configurer les dépendances principales (Express, React, etc.).
+---
 
-### 3.2 Implémentation métier  
-- Créer les **modèles de données** et **schémas** (TypeORM, Mongoose, Prisma…).  
-- Implémenter les **endpoints** REST ou GraphQL.  
-- Générer le **frontend** de base (pages, composants, routes).
+## 3. Development Workflow
 
-### 3.3 Tests automatisés  
-- Générer et exécuter **tests unitaires** (Jest, Mocha…).  
-- Générer des **tests end-to-end** (Cypress, Playwright…).  
-- Organiser couverture de code > 80 %.
+### 3.1 Skeleton Generation  
+- Generate configuration files (linters, TS/Python, Dockerfile, etc.).  
+- Install and configure main dependencies (Express, React, etc.).
+
+### 3.2 Business Implementation  
+- Create **data models** and **schemas** (TypeORM, Mongoose, Prisma...).  
+- Implement REST or GraphQL **endpoints**.  
+- Generate basic **frontend** (pages, components, routes).
+
+### 3.3 Automated Tests  
+- Generate and execute **unit tests** (Jest, Mocha...).  
+- Generate **end-to-end tests** (Cypress, Playwright...).  
+- Organize code coverage > 80%.
 
 ### 3.4 CI/CD  
-- Créer un workflow GitHub Actions :  
+- Create GitHub Actions workflow:  
   1. Lint  
   2. Tests  
   3. Build  
-  4. Déploiement sur staging (optionnel)  
-- Ajouter badges de statut dans le `README.md`.
+  4. Staging deployment (optional)  
+- Add status badges to `README.md`.
+
+### 3.5 Git workflow & branch management  
+- For each new feature:
+  1. Create a dedicated **new branch** (`feature/feature-name`)
+  2. Develop and **test** the feature in this branch
+  3. **Commit** with descriptive messages (Conventional Commits)
+  4. **Push** the branch to the remote repository (`git push origin feature/feature-name`)
+  5. Create a **Pull Request** via GitHub CLI (`gh pr create`)
+  6. Wait for validation and feedback before merging
 
 ---
 
-## 4. Documentation & bonnes pratiques
+## 4. Documentation & Best Practices
 
 ### 4.1 README.md  
-- Présentation du projet, installation, usage, commandes principales.  
-- Badges (build, coverage, licence).
+- Project presentation, installation, usage, main commands.  
+- Badges (build, coverage, license).
 
-### 4.2 Docstrings & commentaires  
-- Pour chaque fonction/méthode : description, paramètres, valeur de retour.  
-- Utiliser un format standard (JSDoc, Python docstring).
+### 4.2 Docstrings & Comments  
+- For each function/method: description, parameters, return value.  
+- Use a standard format (JSDoc, Python docstring).
 
-### 4.3 API & contrat  
-- Générer un fichier **OpenAPI/Swagger** complet.  
-- Inclure exemples de requêtes/réponses JSON.
+### 4.3 API & Contract  
+- Generate a complete **OpenAPI/Swagger** file.  
+- Include JSON request/response examples.
 
-### 4.4 Versioning & changelog  
-- Respecter **SemVer** : `MAJOR.MINOR.PATCH`.  
-- Mettre à jour `CHANGELOG.md` selon les **Conventional Commits**.
+### 4.4 Versioning & Changelog  
+- Follow **SemVer**: `MAJOR.MINOR.PATCH`.  
+- Update `CHANGELOG.md` according to **Conventional Commits**.
 
-### 4.5 Architecture & diagrammes  
-- Générer un schéma UML de haut niveau (classes, modules).  
-- Documenter les couches (Controller, Service, Repository).
-
----
-
-## 5. Sécurité & qualité  
-- Exécuter **Analyse statique** (Dependabot, Snyk).  
-- Vérifier les **vulnérabilités** et fixer automatiquement.  
-- Ajouter des **GitHub Issues** pour meilleures suggestions (si détectées).
+### 4.5 Architecture & Diagrams  
+- Generate a high-level UML diagram (classes, modules).  
+- Document the layers (Controller, Service, Repository).
 
 ---
 
-## 6. Itération & revue  
-1. Après chaque étape, **valider** et **commiter**.  
-2. Proposer des **améliorations** de performance, lisibilité, accessibilité.  
-3. Répéter jusqu’à ce que l’utilisateur confirme “Terminé”.
+## 5. Security & Quality  
+- Run **Static Analysis** (Dependabot, Snyk).  
+- Check for **vulnerabilities** and fix automatically.  
+- Add **GitHub Issues** for better suggestions (if detected).
 
 ---
 
-## 7. Exemple de tâche à lancer  
-> “Crée une API Node.js (Express + TypeScript) pour gérer des produits, avec tests unitaires, documentation OpenAPI, et CI/CD sur GitHub Actions.”
+## 6. Iteration & Review  
+1. After each step, **validate** and **commit** in the feature branch.  
+2. **Push** changes and create a **Pull Request** with GitHub CLI:
+   ```bash
+   git push origin branch-name
+   gh pr create --title "Concise description" --body "Detailed description"
+   ```
+3. Propose **improvements** for performance, readability, accessibility.
+4. After PR validation, **merge** into the main branch.
+5. Repeat until the user confirms "Done".
 
+---
+
+## 7. Example Task to Launch  
+> "Create a Node.js API (Express + TypeScript) to manage products, with unit tests, OpenAPI documentation, and CI/CD on GitHub Actions."
