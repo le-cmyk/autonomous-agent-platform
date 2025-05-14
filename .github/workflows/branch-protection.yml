@@ -12,16 +12,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
-      - name: Configure Branch Protection
-        uses: relaxdiego/github-branch-protection@v1
+      
+      - name: Protect main branch
+        uses: curry9999/github-branch-protection@v1
         with:
-          github-token: ${{ secrets.ADMIN_GITHUB_TOKEN }}
           repository: ${{ github.repository }}
-          branch: main  # Protect the main branch
-          required-approvals: 1  # Require at least one approval
-          dismiss-stale-reviews: true
-          require-review-from-codeowners: false
-          bypass-pull-request-allowances: ""
-          restrict-push: true  # Prevent direct pushes
-          include-administrators: false  # Allow admins to bypass (set to true to restrict admins as well)
+          branch: main
+          enforce_admins: false
+          required_status_checks: false
+          requires_pull_request: true
+          required_approving_review_count: 1
+          dismiss_stale_reviews: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.ADMIN_GITHUB_TOKEN }}
