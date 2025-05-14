@@ -2,22 +2,6 @@
 
 This repository is configured to prevent direct pushes to the main/master branches. This ensures that all changes go through pull requests and code reviews before being merged.
 
-## Automated Setup (GitHub Actions)  czczeqecczs
-
-The repository contains GitHub Actions workflows that set up branch protection rules automatically. For these workflows to work, you need to:
-
-1. Create a GitHub Personal Access Token (PAT) with the `repo` scope
-2. Add this token as a repository secret named `ADMIN_GITHUB_TOKEN` 
-
-### Creating and Adding the Secret:
-
-1. Go to your GitHub profile settings > Developer settings > Personal access tokens
-2. Generate a new token with the `repo` scope
-3. Navigate to your repository settings > Secrets and variables > Actions
-4. Create a new repository secret named `ADMIN_GITHUB_TOKEN` with the token value
-
-After adding the secret, manually trigger the workflows from the "Actions" tab in your repository.
-
 ## Manual Setup (GitHub Interface)
 
 You can also set up branch protection rules manually:
