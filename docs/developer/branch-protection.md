@@ -4,7 +4,7 @@ This repository is configured to prevent direct pushes to the main/master branch
 
 ## Manual Setup (GitHub Interface)
 
-You can also set up branch protection rules manually:
+Branch protection is set up directly through the GitHub web interface:
 
 1. Go to your repository on GitHub
 2. Click on "Settings" > "Branches"
