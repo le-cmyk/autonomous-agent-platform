@@ -7,22 +7,6 @@ This repository is configured to prevent direct pushes to the main/master branch
 Branch protection is set up directly through the GitHub web interface:
 
 1. Go to your repository on GitHub
-2. Click on "Settings" > "Branches" (or "Settings" > "Code and automation" > "Branches" in newer interfaces)
-3. Under "Branch protection rules", click "Add rule"
-4. In "Branch name pattern", enter `main` or `master` (depending on your default branch)
-5. Enable the following options:
-   - "Require a pull request before merging"
-   - "Require approvals" (set to 1 or more as needed)
-   - "Dismiss stale pull request approvals when new commits are pushed"
-6. Click "Create" or "Save changes"
-
-After adding the secret, manually trigger the workflows from the "Actions" tab in your repository.
-
-## Manual Setup (GitHub Interface)
-
-You can also set up branch protection rules manually:
-
-1. Go to your repository on GitHub
 2. Click on "Settings" > "Branches"
 3. Under "Branch protection rules", click "Add rule"
 4. In "Branch name pattern", enter `main` or `master` (depending on your default branch)
