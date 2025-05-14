@@ -2,7 +2,7 @@
 
 This repository is configured to prevent direct pushes to the main/master branches. This ensures that all changes go through pull requests and code reviews before being merged.
 
-## Automated Setup (GitHub Actions)
+## Automated Setup (GitHub Actions)  czczeqecczs
 
 The repository contains GitHub Actions workflows that set up branch protection rules automatically. For these workflows to work, you need to:
 
